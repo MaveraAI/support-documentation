@@ -1,306 +1,134 @@
 ---
 title: "Voice Configuration"
-description: "Customize your agent's voice, accent, and speaking style"
+description: "How your agent's voice is selected, tuned, and assigned by your Automation Expert."
 ---
 
 ## **Overview**
 
-Voice configuration allows you to customize how your Mavera AI agent sounds during conversations. You can select voices, adjust parameters, and fine-tune the speaking style to match your brand.
+Your agent's voice is one of the most important parts of how your brand comes across on a call. Mavera AI configures the voice for you — based on your preferences from the [agent setup survey](/create-an-agent) — using the voice engine inside `voice.mavera.ai`.
 
-![Voice Configuration Overview](/images/voice-configuration-overview-placeholder.png)
+You don't need to configure voice settings yourself. Your Automation Expert selects and applies the right voice, and your Account Manager will confirm the choice with you before going live.
 
-## **Voice Selection**
+![Voice Configuration Overview](/images/voice-config-overview-placeholder.png)
 
-### **Available Voices**
+---
 
-Mavera AI offers a variety of voices:
-- **Gender Options**: Male, Female, Neutral
-- **Accents**: US, UK, Australian, Canadian, and more
-- **Languages**: Multiple language support
-- **Styles**: Professional, Friendly, Casual, etc.
+## **Voice Preferences You Provide**
 
-![Voice Selection Interface](/images/voice-selection-interface-placeholder.png)
+During the agent setup survey, you specify four voice preferences. These are used together to find the closest matching voice:
 
-### **Choosing the Right Voice**
+### **Gender**
+- **Male** — deeper, typically more authoritative
+- **Female** — typically perceived as warmer and more approachable
 
-Consider these factors:
-- **Brand Identity**: Does the voice match your brand?
-- **Target Audience**: What voice will resonate with your customers?
-- **Use Case**: Different voices work better for different scenarios
-- **Language**: Match voice language with conversation language
+### **Accent**
+- **British (UK)** — standard or regional British accent
+- **American (US)** — neutral or regional US accent
+- **Australian** — Australian accent
+- Other regional accents can be requested via the description field in the survey
 
-## **Basic Voice Settings**
+### **Tone**
+| Tone | Description | Best for |
+|---|---|---|
+| **Professional** | Clear, formal, measured delivery | B2B, legal, financial |
+| **Friendly** | Warm, approachable, conversational | Customer service, hospitality |
+| **Energetic** | Upbeat, fast-paced, enthusiastic | Sales, promotions |
+| **Calm and reassuring** | Slow, steady, empathetic | Healthcare, support |
 
-### **Voice Parameters**
+### **Personality**
+| Personality | Description |
+|---|---|
+| **Concise and direct** | Gets to the point quickly, minimal filler |
+| **Warm and conversational** | Natural, human-feeling flow |
+| **Informative and thorough** | Detailed explanations, covers all bases |
+| **Confident and persuasive** | Assertive, clear calls to action |
 
-Configure basic voice characteristics:
+![Voice Preference Options](/images/voice-config-preferences-placeholder.png)
 
-- **Voice**: Select from available voices
-- **Gender**: Male, Female, or Neutral
-- **Accent**: Regional accent selection
-- **Language**: Primary language
+---
 
-![Basic Voice Settings](/images/basic-voice-settings-placeholder.png)
+## **How Voice Assignment Works**
 
-### **Speaking Rate**
+Once your survey is submitted, your Automation Expert:
 
-Control how fast your agent speaks:
-- **Slow**: More deliberate, easier to understand
-- **Normal**: Standard speaking pace
-- **Fast**: Quicker delivery
+1. Matches your preferences to available voice profiles on `voice.mavera.ai`
+2. Applies the voice to your agent configuration
+3. Adjusts speaking rate and pacing to suit your use case
+4. Tests the voice across typical call scenarios
 
-**Recommendation**: Start with Normal and adjust based on testing.
+If no single voice precisely matches all your preferences, your Automation Expert will select the closest option and may share samples with you for final sign-off before launch.
 
-## **Advanced Voice Settings**
+---
 
-### **Pitch Control**
+## **Custom Voice** *(Professional and Enterprise)*
 
-Adjust voice pitch:
-- **Lower Pitch**: Deeper, more authoritative
-- **Normal Pitch**: Standard pitch
-- **Higher Pitch**: Lighter, more energetic
+On the Professional and Enterprise plans, a custom voice can be configured — a voice that is distinct and consistent with your brand identity. This goes beyond the standard preset voices and is set up as part of your onboarding.
 
-### **Volume Control**
+To request a custom voice, include this in the description field of your agent setup survey or contact your Account Manager.
 
-Adjust voice volume:
-- **Quiet**: Lower volume
-- **Normal**: Standard volume
-- **Loud**: Higher volume
+---
 
-### **Pause Duration**
+## **Multilingual Agents**
 
-Control pauses between sentences:
-- **Short Pauses**: Faster delivery
-- **Normal Pauses**: Standard timing
-- **Long Pauses**: More deliberate pacing
+Your agent can be configured in any of the supported languages available on your plan. On the Pay As You Go plan, agents are configured in English. The Professional and Enterprise plans support over 100 languages.
 
-![Advanced Voice Settings](/images/advanced-voice-settings-placeholder.png)
+If you serve customers who speak multiple languages, speak to your Account Manager — separate agents can be configured per language, each with their own voice and prompt set.
 
-## **Voice Styles**
+---
 
-### **Professional**
+## **Voice and Prompt Consistency**
 
-Formal, business-appropriate tone:
-- Clear articulation
-- Moderate pace
-- Professional tone
-- Suitable for: Business calls, B2B interactions
+Your agent's voice is only one half of how it sounds. The other half is the prompt — the instructions that govern how it speaks, what it says, and how it responds. Your Automation Expert writes the prompt to match the personality and tone you selected, so the written style and the voice work together as a coherent whole.
 
-### **Friendly**
+---
 
-Warm, approachable tone:
-- Conversational pace
-- Warm tone
-- Engaging delivery
-- Suitable for: Customer service, support
+## **Requesting Voice Changes**
 
-### **Casual**
+If you want to change your agent's voice after going live:
 
-Relaxed, informal tone:
-- Natural pace
-- Conversational style
-- Less formal
-- Suitable for: Informal interactions, consumer-facing
+1. Contact your Account Manager or email [support@mavera.ai](mailto:support@mavera.ai)
+2. Describe the change you'd like (e.g. switch from friendly to professional tone, try a different accent)
+3. Your Automation Expert will update the voice configuration and share samples before re-deploying
 
-### **Energetic**
+We recommend testing voice changes in [simulations](/evaluate/simulations) before applying them to your live agent.
 
-High-energy, enthusiastic tone:
-- Faster pace
-- Upbeat delivery
-- Excited tone
-- Suitable for: Sales, marketing, promotions
+---
 
-## **Language and Accent**
-
-### **Supported Languages**
-
-Mavera AI supports multiple languages:
-- English (US, UK, Australian, Canadian)
-- Spanish
-- French
-- German
-- Italian
-- Portuguese
-- And more...
-
-### **Accent Selection**
-
-Choose regional accents:
-- **US English**: American accent
-- **UK English**: British accent
-- **Australian English**: Australian accent
-- **Canadian English**: Canadian accent
-
-**Best Practice**: Match accent with your target audience's location.
-
-## **Voice Testing**
-
-### **Preview Voice**
-
-Before deploying:
-1. Select your voice configuration
-2. Click **"Preview"** or **"Test Voice"**
-3. Listen to sample phrases
-4. Adjust settings as needed
-
-![Voice Preview](/images/voice-preview-placeholder.png)
-
-### **Test in Context**
-
-Test voice in actual conversations:
-1. Use simulation feature
-2. Make test calls
-3. Listen to full conversations
-4. Adjust based on feedback
-
-## **Best Practices**
-
-### **1. Match Voice to Use Case**
-
-Choose voice appropriate for your scenario:
-- Customer service: Friendly, clear
-- Sales: Energetic, persuasive
-- Support: Professional, helpful
-- Information: Clear, neutral
-
-### **2. Consider Your Audience**
-
-Think about your target audience:
-- Age group
-- Cultural preferences
-- Regional preferences
-- Language requirements
-
-### **3. Test Thoroughly**
-
-Always test voice settings:
-- Test with real users
-- Get feedback
-- Adjust based on results
-- Monitor performance
-
-### **4. Keep It Natural**
-
-Avoid over-tuning:
-- Don't make voice too fast or slow
-- Maintain natural pauses
-- Keep pitch in normal range
-- Ensure clarity
-
-### **5. Update Regularly**
-
-Review and update voice settings:
-- Monitor user feedback
-- Test new voices
-- Adjust based on performance
-- Stay current with options
-
-## **Voice Quality Tips**
-
-### **Clarity**
-
-Ensure clear speech:
-- Use appropriate speaking rate
-- Avoid too-fast delivery
-- Ensure proper pauses
-- Test with different accents
-
-### **Naturalness**
-
-Make voice sound natural:
-- Use appropriate pauses
-- Vary speaking rate slightly
-- Match tone to content
-- Avoid robotic delivery
-
-### **Consistency**
-
-Maintain consistent voice:
-- Use same voice across agents
-- Keep settings consistent
-- Standardize configuration
-- Document voice choices
-
-## **Common Issues**
-
-### **Voice Too Fast**
-
-**Solution:**
-- Reduce speaking rate
-- Increase pause duration
-- Test with users
-- Adjust gradually
-
-### **Voice Too Slow**
-
-**Solution:**
-- Increase speaking rate
-- Reduce pause duration
-- Test with users
-- Find optimal balance
-
-### **Voice Unclear**
-
-**Solution:**
-- Check audio quality
-- Adjust speaking rate
-- Test different voices
-- Verify audio settings
-
-### **Voice Doesn't Match Brand**
-
-**Solution:**
-- Try different voice options
-- Adjust style settings
-- Test multiple voices
-- Get stakeholder feedback
-
-## **Troubleshooting**
+## **FAQ**
 
 <AccordionGroup>
-  <Accordion title="Voice settings aren't taking effect">
-    - Verify settings are saved
-    - Check if agent needs redeployment
-    - Test in preview mode
-    - Clear cache and retry
+  <Accordion title="Can I hear the voice before my agent goes live?">
+    Yes. Your Account Manager will arrange for you to test-call your agent during the final testing phase before launch. If you're not happy with the voice at that point, your Automation Expert will adjust it.
   </Accordion>
 
-  <Accordion title="Voice quality is poor">
-    - Check audio connection
-    - Verify voice selection
-    - Test different voices
-    - Review audio settings
+  <Accordion title="Why do advanced voice tweaks sometimes affect quality?">
+    Voice synthesis has natural trade-offs — adjusting pitch, pace, or style can occasionally introduce artefacts or reduce naturalness. Your Automation Expert will flag these during testing and find the best balance.
   </Accordion>
 
-  <Accordion title="Voice doesn't match selected accent">
-    - Verify accent selection
-    - Test voice preview
-    - Check language settings
-    - Try different voice option
+  <Accordion title="Does the voice need to match the language?">
+    Yes — for the best caller experience, the voice and language should match. If you need agents in multiple languages, each agent should be configured with a voice native to that language.
   </Accordion>
 
-  <Accordion title="How do I test voice before deploying?">
-    - Use voice preview feature
-    - Run simulations
-    - Make test calls
-    - Get user feedback
+  <Accordion title="Is a custom voice available on all plans?">
+    Custom voice is available on the Professional and Enterprise plans. Pay As You Go plans use standard preset voices.
   </Accordion>
 </AccordionGroup>
+
+---
 
 ## **Next Steps**
 
 <CardGroup cols={2}>
-  <Card title="Configuration" icon="gear" href="/build/configuration">
-    General configuration settings
+  <Card title="Agent Setup Survey" icon="pen-to-square" href="/create-an-agent">
+    Review what to include in your voice preferences.
   </Card>
-  <Card title="Test Your Agent" icon="flask" href="/evaluate/test-your-agent">
-    Test voice in conversations
+  <Card title="Actions" icon="bolt" href="/build/actions">
+    Add integrations to your agent.
+  </Card>
+  <Card title="Test Your Agent" icon="bug" href="/evaluate/test-your-agent">
+    Test the voice before going live.
   </Card>
   <Card title="Deploy" icon="cloud-upload" href="/launch/deploy-your-agent">
-    Deploy your agent with voice settings
-  </Card>
-  <Card title="Analytics" icon="chart-line" href="/learn/analytics-dashboard">
-    Monitor voice performance
+    Understand the go-live process.
   </Card>
 </CardGroup>
-

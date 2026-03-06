@@ -1,110 +1,131 @@
 ---
 title: "Logs"
-description: "Access detailed execution logs for every conversation"
+description: "Access call transcripts, recordings, and execution details for every conversation your agent handles."
 ---
 
 ## **Overview**
 
-Logs provide detailed information about every conversation your agent has. Use logs to debug issues, understand agent behavior, and improve performance.
+Every call your agent handles is logged in full inside your `voice.mavera.ai` workspace. Logs give you a complete record of what was said, what the agent did, and how the conversation ended — conversation by conversation, in real time.
+
+You don't need to set anything up. Logging is on by default for all accounts.
 
 ![Logs Overview](/images/logs-overview-placeholder.png)
 
-## **Accessing Logs**
+---
 
-### **View Logs**
+## **Accessing Your Logs**
 
-1. Navigate to **Learn** → **Logs**
-2. Filter by date, agent, or call
-3. Select a conversation to view details
-4. Review execution flow
+1. Log in to your `voice.mavera.ai` workspace
+2. Navigate to **Logs** in the left sidebar
+3. Browse or search your call history
+4. Click any call to view the full transcript and details
 
 ![Logs Interface](/images/logs-interface-placeholder.png)
 
-## **Log Information**
+---
 
-### **Conversation Details**
+## **What's in a Log Entry**
 
-- **Call Information**: Date, time, duration
-- **Participant Info**: Phone numbers, names
-- **Conversation Flow**: Full transcript
-- **Execution Path**: Which nodes were executed
+Every logged call contains:
 
-### **Agent Behavior**
+### **Call Information**
+- Date and time of the call
+- Call direction (inbound or outbound)
+- Phone number dialled / caller's number
+- Call duration
+- Call outcome (completed, dropped, transferred, voicemail)
 
-- **Responses**: What agent said
-- **Decisions**: Choices made
-- **Actions**: Actions executed
-- **Variables**: Variables used
+### **Full Transcript**
+A line-by-line transcript of everything said — both the caller and your agent. Transcripts are generated automatically after each call and are typically ready within a minute of the call ending.
 
-### **Performance Metrics**
+### **Call Recording**
+A full audio recording of the call, playable directly in the logs interface.
 
-- **Response Times**: How fast agent responded
-- **Processing Time**: Time to process requests
-- **Action Duration**: Time for actions to complete
-- **Total Duration**: Full conversation time
+| Plan | Recording Storage |
+|---|---|
+| **Pay As You Go** | 7 days |
+| **Professional / Enterprise** | 2 years |
 
-## **Filtering and Search**
+### **Actions Executed**
+If your agent triggered any actions during the call (e.g. created a calendar booking, logged a CRM record), these are listed in the log entry alongside the result.
 
-### **Filters**
+### **Variables and Context**
+Key data points collected during the call — caller name, service enquiry, booking details, outcome — stored alongside the transcript.
 
-Filter logs by:
-- **Date Range**: Specific time period
-- **Agent**: Specific agent
-- **Call Type**: Inbound/Outbound
-- **Status**: Success/Failed
-- **Duration**: Call length
+![Log Detail View](/images/logs-detail-placeholder.png)
 
-### **Search**
+---
 
-Search logs for:
-- **Keywords**: Specific words or phrases
-- **Phone Numbers**: Caller or recipient
-- **Variables**: Variable values
-- **Errors**: Error messages
+## **Filtering and Searching**
+
+Use the filter bar to narrow down your call history:
+
+- **Date range** — find calls from a specific period
+- **Call direction** — inbound or outbound only
+- **Call duration** — filter by shorter or longer calls
+- **Outcome** — completed, transferred, dropped, voicemail
+- **Keyword search** — search transcripts for specific words or phrases (e.g. a customer name, a service, a postcode)
+
+---
 
 ## **Exporting Logs**
 
-### **Export Options**
+Call data can be exported for reporting, auditing, or integration with your own systems. See [Export Call Data](/learn/export-call-data) for details on formats and options.
 
-- **CSV Export**: Spreadsheet format
-- **JSON Export**: Structured data
-- **PDF Export**: Document format
-- **API Access**: Programmatic access
+---
 
-## **Best Practices**
+## **Using Logs to Improve Your Agent**
 
-### **1. Regular Review**
+Logs are the best tool for identifying what's working and what needs improvement. Useful things to look for:
 
-Review logs regularly:
-- Daily for new deployments
-- Weekly for established agents
-- After incidents
-- For optimization
+- **Short calls with no outcome** — may indicate the agent isn't understanding the caller correctly
+- **Repeated questions your agent can't answer** — content that should be added to the [knowledge base](/build/knowledge-base)
+- **Calls transferred or dropped** — may indicate a flow issue or missing integration
+- **Caller frustration** — detectable in the transcript by repeated questions or caller asking to speak to a human
 
-### **2. Monitor Errors**
+Share any patterns you spot with your Account Manager and your Automation Expert will make the necessary adjustments.
 
-Watch for errors:
-- Failed actions
-- Timeouts
-- Connection issues
-- Configuration problems
+---
 
-### **3. Track Performance**
+## **FAQ**
 
-Monitor metrics:
-- Response times
-- Success rates
-- User satisfaction
-- Error rates
+<AccordionGroup>
+  <Accordion title="How soon after a call is the transcript available?">
+    Transcripts are typically ready within 60 seconds of the call ending. For longer calls, it may take a few minutes.
+  </Accordion>
+
+  <Accordion title="Are all calls recorded?">
+    Yes, all calls are recorded by default. Recordings are stored for 7 days on Pay As You Go and 2 years on Professional and Enterprise.
+  </Accordion>
+
+  <Accordion title="Can I search for a specific caller's transcript?">
+    Yes — use the keyword search to find calls by phone number, caller name (if collected), or any words that appeared in the transcript.
+  </Accordion>
+
+  <Accordion title="Can I share a call log with my team?">
+    You can export call data or share access to your `voice.mavera.ai` workspace with additional team members. Contact your Account Manager to set up additional workspace users.
+  </Accordion>
+
+  <Accordion title="What if a call is missing from the logs?">
+    If you believe a call was handled by your agent but it doesn't appear in logs, contact [support@mavera.ai](mailto:support@mavera.ai) with the date, time, and number. We'll investigate.
+  </Accordion>
+</AccordionGroup>
+
+---
 
 ## **Next Steps**
 
 <CardGroup cols={2}>
-  <Card title="Analytics" icon="chart-line" href="/learn/analytics-dashboard">
-    View performance analytics
+  <Card title="Analytics Dashboard" icon="chart-line" href="/learn/analytics-dashboard">
+    See aggregate metrics and trends across all your calls.
   </Card>
-  <Card title="Export Data" icon="download" href="/learn/export-call-data">
-    Export call data
+  <Card title="Export Call Data" icon="download" href="/learn/export-call-data">
+    Download call data for reporting or analysis.
+  </Card>
+  <Card title="Webhooks" icon="webhook" href="/learn/about-webhooks">
+    Receive real-time call events as they happen.
+  </Card>
+  <Card title="Test Your Agent" icon="bug" href="/evaluate/test-your-agent">
+    Use logs to review test calls before going live.
   </Card>
 </CardGroup>
-

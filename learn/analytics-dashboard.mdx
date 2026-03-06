@@ -1,91 +1,130 @@
 ---
 title: "Analytics Dashboard"
-description: "Monitor performance metrics and insights"
+description: "Monitor your agent's call performance, volumes, and trends from your voice workspace."
 ---
 
 ## **Overview**
 
-The Analytics Dashboard provides comprehensive insights into your agent's performance, helping you understand usage patterns, identify improvements, and track key metrics.
+The Analytics Dashboard in `voice.mavera.ai` gives you a high-level view of how your agent is performing — call volumes, durations, outcomes, and trends over time. It's the fastest way to understand whether your agent is doing its job and where there's room to improve.
 
-![Analytics Dashboard](/images/analytics-dashboard-placeholder.png)
+No setup required. Analytics are populated automatically as your agent handles calls.
+
+![Analytics Dashboard Overview](/images/analytics-overview-placeholder.png)
+
+---
 
 ## **Key Metrics**
 
-### **Call Metrics**
+### **Call Volume**
+- **Total calls** — how many calls your agent has handled in a given period
+- **Inbound vs outbound** — breakdown by call direction
+- **Calls by day / week / month** — volume trends over time
+- **Peak hours** — when your agent is busiest
 
-- **Total Calls**: Number of conversations
-- **Success Rate**: Percentage of successful calls
-- **Average Duration**: Average call length
-- **Peak Times**: Busiest hours/days
+### **Call Outcomes**
+- **Completed** — calls that reached a natural end
+- **Transferred** — calls handed off to a human
+- **Dropped** — calls that ended unexpectedly
+- **Voicemail** — calls that went to voicemail (outbound)
+- **No answer** — outbound calls not answered
 
-### **Performance Metrics**
+### **Call Duration**
+- **Average call length** — useful for spotting conversations that are too long or too short
+- **Duration distribution** — how call lengths spread across short, medium, and long
 
-- **Response Time**: How fast agent responds
-- **Action Success Rate**: Percentage of successful actions
-- **Error Rate**: Frequency of errors
-- **User Satisfaction**: Customer satisfaction scores
+### **Action Performance** *(where applicable)*
+- **Bookings made** — calendar appointments created during calls
+- **CRM records logged** — contacts or leads created
+- **Payment events** *(Professional and Enterprise)* — payment actions triggered
 
-### **Business Metrics**
+![Analytics Call Metrics](/images/analytics-metrics-placeholder.png)
 
-- **Conversion Rate**: Business goal achievement
-- **Cost per Call**: Operational costs
-- **ROI**: Return on investment
-- **Efficiency Gains**: Time/cost savings
+---
 
-## **Dashboard Views**
+## **Time Ranges**
 
-### **Overview**
+Filter the dashboard by:
+- Last 7 days
+- Last 30 days
+- Last 90 days
+- Custom date range
 
-High-level summary:
-- Key metrics at a glance
-- Recent trends
-- Quick insights
-- Alerts and notifications
+---
 
-![Dashboard Overview](/images/dashboard-overview-placeholder.png)
+## **Reading the Data**
 
-### **Detailed Reports**
+### **High drop rate**
+If a significant portion of calls are being dropped (caller hangs up before a natural end), this may indicate the agent's opening isn't landing well, or the caller isn't getting to the information they need quickly enough. Share this with your Account Manager.
 
-In-depth analysis:
-- Call breakdowns
-- Performance analysis
-- Trend analysis
-- Comparative reports
+### **Long average call duration**
+Longer calls aren't always better. If calls are consistently longer than expected, your agent may be giving overly verbose responses, or callers may be struggling to get what they need. Review the [Logs](/learn/logs) for context.
 
-## **Best Practices**
+### **Low booking conversion** *(if calendar integrated)*
+If many calls include a discussion of appointments but few result in a booking, the agent's booking flow may need adjustment. Flag this to your Account Manager.
 
-### **1. Regular Monitoring**
+### **Volume spikes**
+A sudden increase in call volume may indicate a campaign, a viral moment, or a change in demand. Ensure your concurrent call limits are sufficient — see [Telephony](/launch/telephony).
 
-Check dashboard regularly:
-- Daily for active agents
-- Weekly for established agents
-- After changes
-- For optimization
+![Analytics Trends](/images/analytics-trends-placeholder.png)
 
-### **2. Set Alerts**
+---
 
-Configure alerts for:
-- High error rates
-- Performance degradation
-- Unusual patterns
-- Threshold breaches
+## **Plan Differences**
 
-### **3. Track Trends**
+| Feature | Pay As You Go | Professional | Enterprise |
+|---|---|---|---|
+| Basic call metrics | Yes | Yes | Yes |
+| Outcome breakdown | Yes | Yes | Yes |
+| Action performance data | Limited | Yes | Yes |
+| Advanced analytics | No | Yes | Yes |
+| Custom dashboards | No | No | Yes |
+| White-label reports | No | Yes | Yes |
 
-Monitor trends:
-- Performance over time
-- Usage patterns
-- Seasonal variations
-- Growth trends
+---
+
+## **Sharing Analytics**
+
+On Professional and Enterprise plans, you can generate white-label reports from the analytics dashboard — useful for sharing performance data with stakeholders or clients.
+
+Contact your Account Manager to enable white-label reporting.
+
+---
+
+## **FAQ**
+
+<AccordionGroup>
+  <Accordion title="How often is the analytics data updated?">
+    Call data is reflected in the dashboard in near real time — typically within a few minutes of each call ending.
+  </Accordion>
+
+  <Accordion title="Can I export analytics data?">
+    Yes. See [Export Call Data](/learn/export-call-data) for options on downloading your data.
+  </Accordion>
+
+  <Accordion title="Can I see analytics for individual agents?">
+    Yes — if you have multiple agents, you can filter the dashboard by agent to see performance data separately.
+  </Accordion>
+
+  <Accordion title="What counts as a successful call?">
+    A completed call is one that reached a natural end without being dropped. Whether it was "successful" in business terms (e.g. a booking made) depends on the actions configured in your agent. These are tracked separately under Action Performance.
+  </Accordion>
+</AccordionGroup>
+
+---
 
 ## **Next Steps**
 
 <CardGroup cols={2}>
   <Card title="Logs" icon="file-lines" href="/learn/logs">
-    Review detailed logs
+    Drill into individual calls and transcripts.
   </Card>
-  <Card title="Export Data" icon="download" href="/learn/export-call-data">
-    Export analytics data
+  <Card title="Export Call Data" icon="download" href="/learn/export-call-data">
+    Download call data for your own analysis.
+  </Card>
+  <Card title="Telephony" icon="phone" href="/launch/telephony">
+    Review concurrent call limits and capacity.
+  </Card>
+  <Card title="Webhooks" icon="webhook" href="/learn/about-webhooks">
+    Push call events to your own dashboards or systems.
   </Card>
 </CardGroup>
-

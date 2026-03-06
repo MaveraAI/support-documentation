@@ -1,239 +1,145 @@
 ---
-title: "Manual Testing and Debugging"
-description: "Test and debug your agent manually before deployment"
+title: "Testing Your Agent"
+description: "How to test your Mavera AI agent before and after it goes live."
 ---
 
 ## **Overview**
 
-Manual testing allows you to interact directly with your agent to verify behavior, identify issues, and ensure everything works as expected before deploying to production.
+Before your agent handles a real customer call, it goes through multiple rounds of testing — by your Automation Expert, your Account Manager, and finally by you. This page explains what testing looks like at each stage and how to get the most out of your final review.
 
-![Manual Testing Overview](/images/manual-testing-overview-placeholder.png)
+![Testing Overview](/images/testing-overview-placeholder.png)
 
-## **Why Manual Testing?**
+---
 
-- **Direct Interaction**: Experience the agent as users will
-- **Issue Discovery**: Find problems before deployment
-- **Quality Assurance**: Verify agent behavior
-- **User Experience**: Test from user perspective
+## **Who Tests What**
 
-## **Testing Methods**
+| Stage | Who tests | What's tested |
+|---|---|---|
+| First-round testing | Automation Expert | Core call flow, voice, integrations |
+| QA stress test | Account Manager | Edge cases, unusual caller behaviour, failure handling |
+| Final client testing | You | Your real scenarios, your judgement |
 
-### **1. Test Calls**
+Your agent only goes live once you've given sign-off. You're not rushed through this stage.
 
-Make actual phone calls:
-1. Navigate to agent settings
-2. Click **"Test Call"** or **"Make Test Call"**
-3. Enter your phone number
-4. Receive call and interact with agent
+---
 
-![Test Call Interface](/images/test-call-interface-placeholder.png)
+## **How to Test Your Agent**
 
-### **2. Simulation Testing**
+When your Account Manager notifies you that your agent is ready for final testing, you'll receive your agent's phone number. The best way to test it is simple: **call it**.
 
-Use simulation interface:
-1. Go to **Evaluate** → **Simulations**
-2. Create or select a simulation
-3. Run simulation interactively
-4. Review conversation flow
+Use a real phone — don't use VoIP or web calling tools if you can avoid it, as they don't always reproduce the call quality your customers will experience.
 
-### **3. Preview Mode**
+### **What to test:**
 
-Test in preview:
-1. Open agent configuration
-2. Click **"Preview"** or **"Test"**
-3. Type or speak test messages
-4. Review agent responses
+**Cover your most common scenarios first:**
+- A customer enquiring about your main service
+- A customer asking about pricing
+- A customer wanting to book an appointment
+- A customer asking about your location or hours
 
-![Preview Mode](/images/preview-mode-placeholder.png)
+**Then test edge cases:**
+- A caller who's vague or unclear about what they want
+- A caller who asks something your agent shouldn't know (to check how it handles uncertainty)
+- A caller who asks to speak to a human
+- A caller who calls outside business hours (if you have a test number that supports this)
 
-## **What to Test**
+**Pay attention to:**
+- Does the agent introduce itself correctly?
+- Does it sound natural — not robotic or stilted?
+- Does it handle your services accurately?
+- Does it pick up the right intent from how callers phrase things?
+- Does it complete the full flow (e.g. actually create a booking if that's configured)?
+- Does the voice suit your brand?
 
-### **Basic Functionality**
+![Test Call Interface](/images/testing-call-placeholder.png)
 
-- **Greeting**: Does agent greet properly?
-- **Responses**: Are responses appropriate?
-- **Understanding**: Does agent understand inputs?
-- **Flow**: Does conversation flow correctly?
+---
 
-### **Edge Cases**
+## **Reviewing Test Calls in Logs**
 
-- **Unexpected Inputs**: How does agent handle unexpected responses?
-- **Errors**: What happens when errors occur?
-- **Timeouts**: How are timeouts handled?
-- **Interruptions**: Can users interrupt the agent?
+Every test call is logged in your `voice.mavera.ai` workspace exactly the same as a live call. After your test calls, log in to [Logs](/learn/logs) and review:
 
-### **Integration Points**
+- The full transcript of your conversation
+- Whether any actions were executed correctly
+- How long the call took
+- Whether anything was unexpected or off
 
-- **Actions**: Do actions execute correctly?
-- **Knowledge Base**: Is knowledge base accessed?
-- **Memory**: Is memory working properly?
-- **External Systems**: Are integrations functioning?
+This is useful for spotting issues that are hard to notice mid-call — phrasing that sounds slightly wrong in writing, or a step in the flow that was skipped.
 
-### **User Experience**
+![Test Call Log Review](/images/testing-logs-placeholder.png)
 
-- **Clarity**: Are responses clear?
-- **Tone**: Is tone appropriate?
-- **Helpfulness**: Is agent helpful?
-- **Efficiency**: Is conversation efficient?
+---
 
-## **Debugging**
+## **Giving Feedback**
 
-### **Review Logs**
+If you find anything during testing that you want changed, write it down specifically and share it with your Account Manager. Useful feedback sounds like:
 
-Check execution logs:
-1. Go to **Learn** → **Logs**
-2. Filter by test session
-3. Review conversation flow
-4. Identify issues
+- *"When I asked about pricing, it gave the wrong figure — it said £150 but the correct price is £175"*
+- *"The greeting feels too formal for our business — can we make it more relaxed?"*
+- *"It didn't ask for my name before trying to book the appointment"*
+- *"When I said I wasn't sure what I needed, it didn't offer to help me figure it out — it just listed services"*
 
-![Debug Logs](/images/debug-logs-placeholder.png)
+Vague feedback like *"it didn't sound right"* is harder to action. The more specific you are, the faster your Automation Expert can make targeted adjustments.
 
-### **Check Variables**
+Your Account Manager will coordinate the changes, your Automation Expert will update the agent, and you'll be invited to test again.
 
-Verify variable values:
-- Are variables set correctly?
-- Are variables used properly?
-- Do variables persist?
-- Are variable names correct?
+---
 
-### **Test Actions**
+## **Testing After Changes**
 
-Verify action execution:
-- Do actions trigger correctly?
-- Are API calls successful?
-- Is data formatted properly?
-- Are errors handled?
+Any time your agent is updated — new service added, prompt adjusted, integration changed — it should be tested again before being relied on for live calls. Your Account Manager will coordinate this whenever a significant change is made.
 
-### **Review Configuration**
+For minor updates (e.g. a small pricing change in the knowledge base), your Account Manager will advise whether a full round of testing is needed or whether a spot-check is sufficient.
 
-Check agent settings:
-- Voice configuration
-- Knowledge base setup
-- Action configuration
-- Memory settings
+---
 
-## **Common Issues**
+## **Simulations** *(Advanced)*
 
-### **Agent Not Responding**
+In addition to live test calls, your `voice.mavera.ai` workspace supports simulated conversations — automated tests that run predefined call scenarios against your agent without making a real phone call. These are used internally by your Automation Expert during the build phase.
 
-**Possible Causes:**
-- Configuration errors
-- Network issues
-- Service problems
+If you want to set up custom simulation scenarios for ongoing regression testing, speak to your Account Manager.
 
-**Solutions:**
-- Check agent status
-- Verify configuration
-- Review logs
-- Test connectivity
+---
 
-### **Incorrect Responses**
-
-**Possible Causes:**
-- Prompt issues
-- Knowledge base problems
-- Context misunderstanding
-
-**Solutions:**
-- Review prompts
-- Check knowledge base
-- Test understanding
-- Refine configuration
-
-### **Actions Not Working**
-
-**Possible Causes:**
-- API errors
-- Authentication issues
-- Configuration problems
-
-**Solutions:**
-- Test API endpoints
-- Verify credentials
-- Check configuration
-- Review error logs
-
-## **Best Practices**
-
-### **1. Test Systematically**
-
-Follow a test plan:
-- Test basic functionality first
-- Then test edge cases
-- Finally test integrations
-- Document findings
-
-### **2. Test from User Perspective**
-
-Think like a user:
-- Use natural language
-- Test common scenarios
-- Try unexpected inputs
-- Verify user experience
-
-### **3. Document Issues**
-
-Keep detailed notes:
-- What was tested
-- What happened
-- What should happen
-- How to reproduce
-
-### **4. Test Regularly**
-
-Test frequently:
-- Before deployment
-- After changes
-- Regular intervals
-- After incidents
-
-### **5. Get Feedback**
-
-Involve others:
-- Team members
-- Stakeholders
-- Beta users
-- Customers
-
-## **Troubleshooting**
+## **FAQ**
 
 <AccordionGroup>
-  <Accordion title="How do I test without making calls?">
-    - Use simulation feature
-    - Use preview mode
-    - Test in development environment
-    - Use test phone numbers
+  <Accordion title="Can I test without making a real phone call?">
+    The best test is always a real call, because it replicates the actual caller experience including voice quality, latency, and natural speech. For functional testing (e.g. checking that a booking action works), your Automation Expert can run simulations during the build phase.
   </Accordion>
 
-  <Accordion title="Agent responses are incorrect">
-    - Review agent prompts
-    - Check knowledge base
-    - Verify configuration
-    - Test understanding
+  <Accordion title="What if I find a bug after the agent goes live?">
+    Contact your Account Manager immediately. For issues that affect callers, they can temporarily suspend the agent while it's fixed. For minor issues, a fix can be deployed without interruption.
   </Accordion>
 
-  <Accordion title="How do I debug complex issues?">
-    - Review detailed logs
-    - Test components individually
-    - Use debugging tools
-    - Contact support if needed
+  <Accordion title="How many rounds of testing are normal?">
+    Most agents are ready after one or two rounds of client testing. If your business is complex or you have specific edge cases you want to cover, more rounds are fine — the goal is that you're genuinely happy before going live.
+  </Accordion>
+
+  <Accordion title="Can I invite someone else from my team to test?">
+    Yes. Give them your agent's test number and ask them to call and report back. This is a good way to get a second opinion, especially from someone who wasn't involved in the setup.
+  </Accordion>
+
+  <Accordion title="Will test calls appear in my call logs?">
+    Yes. All calls — including test calls — appear in your logs. You can identify them by date (they'll be before your go-live date) or by the phone number used.
   </Accordion>
 </AccordionGroup>
+
+---
 
 ## **Next Steps**
 
 <CardGroup cols={2}>
-  <Card title="Simulations" icon="flask" href="/evaluate/simulations">
-    Test with automated scenarios
-  </Card>
-  <Card title="Custom Evaluation" icon="clipboard-check" href="/evaluate/custom-evaluation">
-    Create custom evaluation workflows
-  </Card>
-  <Card title="Deploy" icon="cloud-upload" href="/launch/deploy-your-agent">
-    Deploy your tested agent
+  <Card title="Deploy Your Agent" icon="cloud-upload" href="/launch/deploy-your-agent">
+    Understand the full go-live process.
   </Card>
   <Card title="Logs" icon="file-lines" href="/learn/logs">
-    Review production logs
+    Review test call transcripts and recordings.
+  </Card>
+  <Card title="Simulations" icon="flask" href="/evaluate/simulations">
+    Learn about automated simulation testing.
+  </Card>
+  <Card title="Knowledge Base" icon="database" href="/build/knowledge-base">
+    Update your agent's information based on test findings.
   </Card>
 </CardGroup>
-

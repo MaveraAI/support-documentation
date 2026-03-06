@@ -1,263 +1,136 @@
 ---
 title: "Knowledge Base"
-description: "Add and manage information sources for your agents to provide accurate answers"
+description: "How your agent is trained on your business information so it can answer questions accurately."
 ---
 
 ## **Overview**
 
-A Knowledge Base allows your Mavera AI agent to access specific information from documents, websites, and databases to answer questions accurately. This ensures your agent has the right information at its fingertips.
+Your agent's knowledge base is the information it draws on during calls to answer questions about your business. Without it, your agent can only work from what's in its prompt. With a well-populated knowledge base, it can accurately answer specific questions about your services, pricing, policies, and processes — without guessing.
+
+Mavera's Automation Experts populate and configure the knowledge base for you as part of onboarding. You provide the source material; they upload it, structure it, and make sure your agent uses it correctly.
 
 ![Knowledge Base Overview](/images/knowledge-base-overview-placeholder.png)
 
-## **What is a Knowledge Base?**
+---
 
-A Knowledge Base is a collection of information sources that your agent can reference during conversations:
-- **Documents**: PDFs, Word documents, text files
-- **Websites**: URLs that are scraped for content
-- **Text**: Direct text input
-- **Databases**: External database connections
+## **What Your Agent Can Know**
 
-## **Why Use a Knowledge Base?**
+The knowledge base is the right place for any information your agent should reference during a call but that's too detailed or changeable to hardcode into a prompt:
 
-- **Accuracy**: Ensures your agent provides correct, up-to-date information
-- **Consistency**: All agents can access the same information
-- **Efficiency**: No need to manually update agent prompts with information
-- **Scalability**: Easy to add new information as your business grows
+- **Service details** — full descriptions of what you offer
+- **Pricing** — service fees, packages, deposit amounts
+- **FAQs** — common customer questions and accurate answers
+- **Policies** — cancellation, refunds, terms of service
+- **Coverage areas** — postcodes, regions, locations you serve
+- **Business details** — opening hours, parking, directions, team members
+- **Product information** — specifications, comparisons, requirements
 
-## **Creating a Knowledge Base**
+---
 
-### **Step 1: Navigate to Knowledge Base**
+## **What You Need to Provide**
 
-1. Open your agent configuration
-2. Go to the **Knowledge Base** section
-3. Click **"Add Source"** or **"Create Knowledge Base"**
+Send your source material to your Automation Expert or Account Manager in any of the following formats:
 
-![Knowledge Base Interface](/images/knowledge-base-interface-placeholder.png)
+**Supported formats:**
+- PDF (`.pdf`)
+- Word documents (`.docx`, `.doc`)
+- Plain text (`.txt`)
+- Spreadsheets (`.csv`) — useful for pricing tables
+- Website URLs — your Automation Expert can scrape relevant pages
+- Direct text — paste content directly into a message or email
 
-### **Step 2: Choose Source Type**
+You don't need to format it in any particular way. Your Automation Expert will extract the relevant content and structure it for use in your agent's workspace.
 
-Select the type of information source:
-- **Document Upload**: Upload files
-- **URL**: Add website URLs
-- **Text**: Enter text directly
-- **Database**: Connect to a database
+![Knowledge Base Source Material](/images/knowledge-base-sources-placeholder.png)
 
-### **Step 3: Add Your Content**
+---
 
-#### **Upload Documents**
+## **How the Knowledge Base Works in Calls**
 
-1. Click **"Upload Document"**
-2. Select your file (PDF, DOCX, TXT, etc.)
-3. Wait for processing
-4. Verify the content was extracted correctly
+When a caller asks a question your agent doesn't know from its prompt alone, it searches the knowledge base in real time and uses the most relevant information to form its answer. For example:
 
-**Supported Formats:**
-- PDF (.pdf)
-- Word Documents (.docx, .doc)
-- Text Files (.txt)
-- Markdown (.md)
-- CSV (.csv)
+- *"Do you cover Birmingham?"* → agent checks your coverage area list
+- *"How much does a boiler service cost?"* → agent retrieves your pricing
+- *"What's your cancellation policy?"* → agent reads from your policy document
 
-![Document Upload](/images/document-upload-placeholder.png)
+The agent won't make up answers — if the information isn't in the knowledge base or prompt, it will tell the caller it doesn't know and offer to take a message or transfer the call.
 
-#### **Add URLs**
+---
 
-1. Click **"Add URL"**
-2. Enter the website URL
-3. Configure scraping options:
-   - **Depth**: How many pages to scrape
-   - **Include Links**: Whether to follow links
-   - **Update Frequency**: How often to refresh
-4. Click **"Scrape"**
+## **Keeping the Knowledge Base Up to Date**
 
-![URL Configuration](/images/url-config-placeholder.png)
+Your knowledge base should reflect your current services, pricing, and policies at all times. If something changes — new services added, prices updated, policies revised — you need to let your Account Manager know so the knowledge base can be updated accordingly.
 
-#### **Enter Text Directly**
+**To update your knowledge base:**
+1. Send the new or updated content to [support@mavera.ai](mailto:support@mavera.ai) or your Account Manager
+2. Your Automation Expert will update the knowledge base in `voice.mavera.ai`
+3. The changes take effect on the next call
 
-1. Click **"Add Text"**
-2. Enter or paste your content
-3. Add a title/description
-4. Click **"Save"**
+![Knowledge Base Update Process](/images/knowledge-base-update-placeholder.png)
 
-**Best Practices:**
-- Use clear headings
-- Organize information logically
-- Keep sections focused
-- Update regularly
-
-#### **Connect Database**
-
-1. Click **"Connect Database"**
-2. Enter connection details:
-   - Database type
-   - Host and port
-   - Credentials
-   - Database name
-3. Configure query settings
-4. Test the connection
-
-## **Managing Knowledge Base**
-
-### **Organizing Sources**
-
-- **Categories**: Group related sources
-- **Tags**: Add tags for easy filtering
-- **Priority**: Set priority for important sources
-- **Status**: Enable/disable sources
-
-### **Updating Content**
-
-- **Manual Updates**: Edit or re-upload sources
-- **Automatic Updates**: Set up scheduled refreshes
-- **Version Control**: Track changes to sources
-- **Notifications**: Get notified of updates
-
-### **Search and Filter**
-
-- Search by keywords
-- Filter by type, category, or tags
-- Sort by date, relevance, or priority
-- Preview content before use
+---
 
 ## **Best Practices**
 
-### **1. Keep Content Relevant**
-
-Only include information your agent needs:
-- ✅ Product information
-- ✅ Policies and procedures
-- ✅ FAQs
-- ❌ Outdated information
-- ❌ Irrelevant content
-
-### **2. Organize Information**
-
-Structure your content logically:
-- Use clear headings
-- Group related information
-- Create categories
-- Add tags for searchability
-
-### **3. Keep Content Updated**
-
-Regularly update your knowledge base:
-- Review content monthly
-- Remove outdated information
-- Add new information promptly
-- Verify accuracy
-
-### **4. Optimize for Search**
-
-Make content easy to find:
-- Use descriptive titles
-- Include keywords
-- Add tags
-- Structure content clearly
-
-### **5. Test Regularly**
-
-Test that your agent can find information:
-- Ask questions your agent should answer
-- Verify responses are accurate
-- Check that sources are being used
-- Update as needed
-
-## **Knowledge Base Settings**
-
-### **Relevance Settings**
-
-- **Relevance Threshold**: Minimum relevance score to use information
-- **Max Sources**: Maximum number of sources to use per query
-- **Source Priority**: How to prioritize sources
-
-### **Update Settings**
-
-- **Auto-Update**: Enable automatic updates
-- **Update Frequency**: How often to refresh
-- **Update Notifications**: Get notified of updates
-
-### **Privacy Settings**
-
-- **Data Retention**: How long to keep data
-- **Access Control**: Who can access sources
-- **Compliance**: GDPR, HIPAA compliance
-
-## **Use Cases**
-
-### **Customer Support**
-
-- Product documentation
-- Troubleshooting guides
-- FAQ content
-- Policy information
-
-### **Sales**
-
-- Product catalogs
-- Pricing information
-- Feature descriptions
-- Competitive comparisons
-
-### **HR**
-
-- Employee handbooks
-- Policy documents
-- Benefits information
-- Procedures
-
-### **Healthcare**
-
-- Medical information
-- Treatment protocols
-- Drug information
-- Patient education
-
-## **Troubleshooting**
-
 <AccordionGroup>
-  <Accordion title="Agent isn't using knowledge base information">
-    - Check relevance threshold settings
-    - Verify sources are enabled
-    - Review source priority
-    - Test knowledge base search
+  <Accordion title="Be specific and complete">
+    Vague content produces vague answers. Instead of "we offer cleaning services", give your agent the full list: what types of cleaning, what's included, how long each takes, and the price range.
   </Accordion>
 
-  <Accordion title="Information is outdated">
-    - Update knowledge base sources
-    - Enable automatic updates
-    - Set up update notifications
-    - Review update frequency
+  <Accordion title="Include your most common caller questions">
+    Think about the questions your reception team answers every day. These are the exact questions your agent will face — make sure the answers are in the knowledge base.
   </Accordion>
 
-  <Accordion title="Agent is using wrong information">
-    - Check source priority
-    - Review relevance scores
-    - Verify source accuracy
-    - Update conflicting sources
+  <Accordion title="Keep content current">
+    An outdated price or discontinued service in the knowledge base will cause your agent to give wrong information. Review your knowledge base content whenever you make a business change.
   </Accordion>
 
-  <Accordion title="Documents aren't processing correctly">
-    - Check file format compatibility
-    - Verify file isn't corrupted
-    - Review file size limits
-    - Try re-uploading
+  <Accordion title="Don't duplicate information">
+    If the same information is in both the prompt and the knowledge base, there's potential for conflict. Your Automation Expert will manage this — just provide accurate source material.
   </Accordion>
 </AccordionGroup>
+
+---
+
+## **FAQ**
+
+<AccordionGroup>
+  <Accordion title="Do I upload documents myself?">
+    No. You send your source material to your Automation Expert or Account Manager and they handle the upload and configuration in `voice.mavera.ai`.
+  </Accordion>
+
+  <Accordion title="Can I include my website as a source?">
+    Yes. If your website contains accurate, up-to-date information about your services and business, your Automation Expert can scrape it as part of knowledge base setup.
+  </Accordion>
+
+  <Accordion title="How does the agent decide which information to use?">
+    The knowledge base uses semantic search — when a caller asks a question, the agent finds the most relevant sections of your documents and uses them to construct an answer. The relevance threshold and number of sources used are configured by your Automation Expert.
+  </Accordion>
+
+  <Accordion title="What happens if the caller asks something not in the knowledge base?">
+    Your agent will acknowledge it doesn't have that information and offer to take a message, transfer the call, or advise the caller to contact you directly.
+  </Accordion>
+
+  <Accordion title="How much content can I include?">
+    There's no strict document limit. Your Automation Expert will advise if the volume of content needs to be structured or prioritised in any particular way.
+  </Accordion>
+</AccordionGroup>
+
+---
 
 ## **Next Steps**
 
 <CardGroup cols={2}>
-  <Card title="Configuration" icon="gear" href="/build/configuration">
-    Configure knowledge base settings
-  </Card>
-  <Card title="Test Your Agent" icon="flask" href="/evaluate/test-your-agent">
-    Test knowledge base functionality
-  </Card>
-  <Card title="Analytics" icon="chart-line" href="/learn/analytics-dashboard">
-    Monitor knowledge base usage
-  </Card>
   <Card title="Actions" icon="bolt" href="/build/actions">
-    Connect knowledge base to actions
+    Add live integrations like calendars and CRM.
+  </Card>
+  <Card title="Voice Configuration" icon="microphone" href="/build/voice-configuration">
+    Review how your agent's voice is set up.
+  </Card>
+  <Card title="Test Your Agent" icon="bug" href="/evaluate/test-your-agent">
+    Verify the knowledge base is working correctly.
+  </Card>
+  <Card title="Logs" icon="file-lines" href="/learn/logs">
+    See how your agent uses knowledge in real calls.
   </Card>
 </CardGroup>
-

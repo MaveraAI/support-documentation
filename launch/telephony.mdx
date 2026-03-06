@@ -1,129 +1,165 @@
 ---
 title: "Telephony"
-description: "Configure phone systems and numbers for your agent"
+description: "Phone numbers, call routing, inbound and outbound calling — how your agent connects to the phone network."
 ---
 
 ## **Overview**
 
-Telephony configuration allows you to connect your Mavera AI agent to phone systems, purchase phone numbers, and manage call routing. This enables your agent to make and receive phone calls.
+Every Mavera AI agent is connected to the phone network via Twilio, which is integrated directly into your `voice.mavera.ai` workspace. Your Automation Expert handles the full telephony setup — purchasing your number, connecting it to your agent, and configuring how calls are routed.
+
+You don't manage the Twilio connection yourself. Everything is set up and tested before your agent goes live.
 
 ![Telephony Overview](/images/telephony-overview-placeholder.png)
 
+---
+
 ## **Phone Numbers**
 
-### **Purchasing Numbers**
+### **Purchasing a Number**
 
-1. Navigate to **Telephony** → **Phone Numbers**
-2. Click **"Purchase Number"**
-3. Select country/region
-4. Choose number type (local, toll-free, etc.)
-5. Complete purchase
+As part of your onboarding, your Automation Expert will purchase a phone number for your agent and assign it to your workspace. You can specify:
 
-![Phone Number Purchase](/images/phone-number-purchase-placeholder.png)
+- **Country** — UK, US, Australia, and many others
+- **Number type** — local, toll-free, or national
+- **Geographic preference** — if you want a number that looks local to a specific city or region
 
-### **Number Types**
+If you already have an existing business number you want your agent to answer, speak to your Account Manager about call forwarding or number porting options.
 
-- **Local Numbers**: Regional phone numbers
-- **Toll-Free Numbers**: Free for callers
-- **International Numbers**: Global coverage
-- **Vanity Numbers**: Custom number patterns
+### **Supported Number Types**
 
-### **Number Management**
+| Type | Description |
+|---|---|
+| **Local** | A geographic number tied to a specific region or city |
+| **National / 0800** | Toll-free or national rate — free or low cost for callers |
+| **International** | Numbers from other countries for global coverage |
 
-- **Assign to Agent**: Link number to agent
-- **Call Routing**: Configure routing rules
-- **Voicemail**: Set up voicemail handling
-- **Release**: Release unused numbers
+### **Managing Your Number**
 
-## **Call Routing**
+Once your agent is live, your phone number is managed by your Account Manager. To:
+- Purchase additional numbers
+- Change the number assigned to an agent
+- Set up a second number for a different use case (e.g. one for inbound, one for outbound caller ID)
 
-### **Routing Rules**
+Contact [support@mavera.ai](mailto:support@mavera.ai) or your Account Manager.
 
-Configure how calls are handled:
-- **Direct to Agent**: Route directly to agent
-- **IVR Menu**: Interactive voice response
-- **Time-based**: Different routing by time
-- **Conditional**: Route based on conditions
+![Phone Number Management](/images/telephony-numbers-placeholder.png)
 
-![Call Routing](/images/call-routing-placeholder.png)
+---
 
-### **Voicemail**
+## **Inbound Calls**
 
-Set up voicemail:
-- **Enable Voicemail**: Allow voicemail recording
-- **Voicemail Message**: Custom greeting
-- **Notification**: Get notified of voicemails
-- **Retrieval**: Access voicemail recordings
+Inbound calling is included on all plans. When someone calls your Mavera number:
 
-## **Call Settings**
+1. The call is received by your `voice.mavera.ai` workspace
+2. Your agent answers immediately and begins the conversation
+3. The call flow follows the behaviour configured in your agent's prompt and actions
+4. If needed, the agent can transfer the call, take a message, or trigger a follow-up action
 
-### **Inbound Calls**
+### **Answering Behaviour**
 
-Configure incoming calls:
-- **Answering Rules**: When to answer
-- **Greeting**: Initial greeting message
-- **Timeout**: Maximum wait time
-- **Fallback**: What to do if agent unavailable
+Your agent is configured to answer all calls within the first ring. If the agent is already at capacity (concurrent call limit reached), calls are queued. See [Concurrent Call Limits](#concurrent-call-limits) below.
 
-### **Outbound Calls**
+### **After-Hours Handling**
 
-Configure outgoing calls:
-- **Calling Rules**: When to make calls
-- **Caller ID**: Display number
-- **Retry Logic**: Retry failed calls
-- **Scheduling**: Schedule call times
+If a call comes in outside your configured working hours, your agent can be set to:
+- Answer and let the caller know you're unavailable, taking a callback number
+- Play a custom out-of-hours message
+- Route directly to voicemail
 
-## **Best Practices**
+This is configured during onboarding based on your preferences.
 
-### **1. Choose Right Number Type**
+---
 
-Select appropriate number:
-- Local for regional presence
-- Toll-free for customer service
-- International for global reach
+## **Outbound Calls** *(Professional and Enterprise)*
 
-### **2. Configure Routing Properly**
+On Professional and Enterprise plans, your agent can make outbound calls. This is used for:
 
-Set up routing:
-- Clear routing rules
-- Appropriate fallbacks
-- Time-based routing
-- Test routing logic
+- **Appointment reminders** — automated calls to remind customers of upcoming bookings
+- **Lead follow-ups** — reaching out to enquiries that came in via another channel
+- **Re-engagement campaigns** — contacting lapsed customers
 
-### **3. Monitor Call Quality**
+Outbound campaigns are set up and managed by your Automation Expert and Account Manager. Contact [support@mavera.ai](mailto:support@mavera.ai) to discuss a campaign.
 
-Track performance:
-- Call success rate
-- Audio quality
-- Connection stability
-- User satisfaction
+**Note:** Inbound-only agents cannot use pre-populated caller variables. Outbound campaigns have access to contact data (name, booking details, etc.) that can be used to personalise each call.
 
-## **Troubleshooting**
+---
+
+## **Concurrent Call Limits**
+
+Concurrent call limits determine how many calls your agent can handle at the same time.
+
+| Plan | Concurrent Calls |
+|---|---|
+| **Pay As You Go** | Up to 5 |
+| **Professional** | Higher limits — contact your Account Manager |
+| **Enterprise** | Custom limits, dedicated capacity available |
+
+Calls that exceed the concurrent limit are queued and answered as soon as a slot becomes free. Enterprise plans can have dedicated concurrent call capacity per account.
+
+---
+
+## **Call Quality**
+
+Your agent's call quality depends on both the Twilio connection and the caller's own network. Mavera monitors call quality as part of ongoing account management. If you notice audio quality issues on calls, contact [support@mavera.ai](mailto:support@mavera.ai) with the call details (date, time, number called) so we can investigate.
+
+---
+
+## **Call Recording and Storage**
+
+All calls are recorded and stored in your `voice.mavera.ai` workspace.
+
+| Plan | Recording Storage |
+|---|---|
+| **Pay As You Go** | 7 days |
+| **Professional / Enterprise** | 2 years |
+
+Recordings are accessible in [Logs](/learn/logs) alongside full transcripts.
+
+---
+
+## **FAQ**
 
 <AccordionGroup>
-  <Accordion title="Calls aren't connecting">
-    - Check number assignment
-    - Verify telephony configuration
-    - Test connectivity
-    - Review routing settings
+  <Accordion title="Can I use my existing business number?">
+    In many cases, yes — your existing number can be forwarded to your Mavera agent, or we may be able to port it. Speak to your Account Manager to discuss the options.
   </Accordion>
 
-  <Accordion title="How do I get an Australian number?">
-    - Go to Phone Numbers
-    - Select Australia as region
-    - Choose number type
-    - Complete purchase
+  <Accordion title="How do I buy an Australian number?">
+    During onboarding, let your Automation Expert know you need an Australian number. They'll purchase it through Twilio and configure it in your workspace. Additional numbers can also be purchased post-launch by contacting your Account Manager.
+  </Accordion>
+
+  <Accordion title="What happens if my agent is on a call when another comes in?">
+    Additional calls are queued until a concurrent call slot is available. Your agent answers them in order. If you're regularly hitting your concurrent limit, speak to your Account Manager about upgrading.
+  </Accordion>
+
+  <Accordion title="Can I have different agents on different phone numbers?">
+    Yes. Each agent can have its own phone number. Multiple agents are available on Professional and Enterprise plans. Contact your Account Manager to set this up.
+  </Accordion>
+
+  <Accordion title="Are calls recorded?">
+    Yes, all calls are recorded. Recordings are stored for 7 days on Pay As You Go and 2 years on Professional and Enterprise. They are accessible in your [Logs](/learn/logs).
+  </Accordion>
+
+  <Accordion title="Why is my agent reaching voicemail on outbound calls?">
+    Outbound calls may hit voicemail if the recipient doesn't answer. Your agent is configured to handle this — it can leave a message, hang up, or schedule a retry. If this is happening unexpectedly on inbound calls, check your routing configuration or contact support.
   </Accordion>
 </AccordionGroup>
+
+---
 
 ## **Next Steps**
 
 <CardGroup cols={2}>
-  <Card title="Deploy Agent" icon="cloud-upload" href="/launch/deploy-your-agent">
-    Deploy your configured agent
+  <Card title="Deploy Your Agent" icon="cloud-upload" href="/launch/deploy-your-agent">
+    Understand what happens when your agent goes live.
+  </Card>
+  <Card title="Logs" icon="file-lines" href="/learn/logs">
+    Review call recordings and transcripts.
   </Card>
   <Card title="Analytics" icon="chart-line" href="/learn/analytics-dashboard">
-    Monitor call performance
+    Monitor call volume and performance.
+  </Card>
+  <Card title="Actions" icon="bolt" href="/build/actions">
+    Connect calendars, CRM, and other integrations.
   </Card>
 </CardGroup>
-

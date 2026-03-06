@@ -1,219 +1,140 @@
 ---
-title: "Deploy Your Agent"
-description: "Deploy your agent to production and start handling real conversations"
+title: "Going Live"
+description: "What happens before, during, and after your agent is deployed to production."
 ---
 
 ## **Overview**
 
-Deployment is the final step before your agent goes live. This guide covers everything you need to know to successfully deploy your Mavera AI agent to production.
+Going live is the point at which your agent starts handling real calls from real customers. Mavera AI manages the entire deployment process — your Automation Expert and Account Manager carry out all the necessary checks before your agent ever touches a live call.
 
-![Deployment Overview](/images/deployment-overview-placeholder.png)
+This page explains the full go-live process so you know what to expect at each stage.
 
-## **Pre-Deployment Checklist**
+![Go Live Overview](/images/deploy-overview-placeholder.png)
 
-Before deploying, ensure:
+---
 
-- ✅ Agent is fully configured
-- ✅ Testing is complete
-- ✅ Voice settings are correct
-- ✅ Knowledge base is up to date
-- ✅ Actions are tested
-- ✅ Telephony is configured
-- ✅ Monitoring is set up
+## **The Deployment Pipeline**
 
-## **Deployment Steps**
+Every Mavera agent goes through a structured deployment process before going live. No agent is deployed without passing each stage.
 
-### **Step 1: Review Configuration**
+<Steps>
+  <Step title="Agent Built and Configured">
+    Your Automation Expert has built your agent in `voice.mavera.ai` — prompts written, voice assigned, knowledge base populated, and integrations connected.
+  </Step>
+  <Step title="Phone Number Assigned">
+    Your Twilio number has been purchased and connected to your agent. Call routing is configured for both inbound and after-hours behaviour.
+  </Step>
+  <Step title="First-Round Testing">
+    Your Automation Expert makes test calls to verify the agent responds correctly, integrations are working, and the voice sounds right.
+  </Step>
+  <Step title="Handover to Account Manager">
+    Your Automation Expert hands over to your Account Manager with a summary of what's been built and any notes on edge cases.
+  </Step>
+  <Step title="QA Stress Test">
+    Your Account Manager runs a quality assurance stress test — simulating a range of call scenarios including common cases, edge cases, and attempts to trip up the agent.
+  </Step>
+  <Step title="Client Testing">
+    If the QA stress test passes with no corrections needed, your agent is shared with you for final testing. You'll be given your number and invited to call your agent directly.
+  </Step>
+  <Step title="Go Live">
+    Once you've approved the agent, your Account Manager marks the deployment as complete. Your agent is now live and handling real calls.
+  </Step>
+</Steps>
 
-Verify all settings:
-1. Open agent configuration
-2. Review all settings
-3. Check voice configuration
-4. Verify knowledge base
-5. Test actions
+---
 
-![Configuration Review](/images/config-review-placeholder.png)
+## **Your Role in the Process**
 
-### **Step 2: Configure Telephony**
+Your primary responsibility is **final testing and sign-off**. When your Account Manager shares the agent with you:
 
-Set up phone numbers:
-1. Go to **Telephony** section
-2. Purchase or assign phone number
-3. Configure call routing
-4. Set up voicemail
-5. Test connectivity
+- Call your agent directly from a real phone
+- Try the scenarios most important to your business (booking an appointment, asking about pricing, enquiring about availability)
+- Listen for anything that sounds wrong — tone, pacing, accuracy, how it handles your services
+- Share feedback with your Account Manager
 
-![Telephony Setup](/images/telephony-setup-placeholder.png)
+If you're happy, confirm sign-off and the agent goes live. If you have changes, your Automation Expert will make them and the process repeats from QA.
 
-### **Step 3: Set Up Monitoring**
+![Final Testing Call](/images/deploy-final-testing-placeholder.png)
 
-Configure monitoring:
-1. Set up analytics
-2. Configure alerts
-3. Enable logging
-4. Set up webhooks
-5. Test monitoring
+---
 
-### **Step 4: Deploy Agent**
+## **After Going Live**
 
-Deploy to production:
-1. Click **"Deploy"** or **"Go Live"**
-2. Confirm deployment
-3. Wait for activation
-4. Verify deployment status
+Once your agent is live, your `voice.mavera.ai` workspace gives you full visibility into how it's performing.
 
-![Deployment Interface](/images/deployment-interface-placeholder.png)
+### **What you can access:**
+- **[Logs](/learn/logs)** — every call, transcript, and recording
+- **[Analytics Dashboard](/learn/analytics-dashboard)** — call volume, duration, and performance trends
+- **[Export Call Data](/learn/export-call-data)** — download call data for your own analysis
 
-## **Deployment Options**
+### **What your Account Manager monitors:**
+- Ongoing call quality
+- Any errors or unexpected behaviour flagged in logs
+- Concurrent call limit usage
 
-### **Gradual Rollout**
+---
 
-Deploy gradually:
-- **Percentage Rollout**: Deploy to percentage of traffic
-- **Time-based**: Deploy during specific hours
-- **Geographic**: Deploy to specific regions
-- **A/B Testing**: Compare with existing solution
+## **Making Changes After Launch**
 
-### **Full Deployment**
+Your agent is never locked after going live. You can request changes at any time:
 
-Deploy to all traffic:
-- Immediate full deployment
-- All calls routed to agent
-- Complete replacement
-- Full monitoring
+| Change type | How to request |
+|---|---|
+| Voice or tone adjustment | Contact your Account Manager |
+| New service added | Send updated info to [support@mavera.ai](mailto:support@mavera.ai) |
+| Pricing or policy update | Send new content to update the knowledge base |
+| New integration | Contact your Account Manager to scope |
+| New agent | Contact your Account Manager |
 
-## **Post-Deployment**
+All changes go through the same build → QA → testing → sign-off → deploy process before going live.
 
-### **Monitor Performance**
-
-Watch key metrics:
-- Call volume
-- Success rate
-- Response times
-- Error rates
-- User satisfaction
-
-![Performance Monitoring](/images/performance-monitoring-placeholder.png)
-
-### **Review Logs**
-
-Check execution logs:
-- Conversation quality
-- Error occurrences
-- Performance issues
-- User feedback
-
-### **Gather Feedback**
-
-Collect user feedback:
-- Customer surveys
-- Support tickets
-- Analytics data
-- Team observations
+---
 
 ## **Rollback**
 
-### **When to Rollback**
+If a live agent starts behaving unexpectedly after a change, your Account Manager can roll back to the previous version immediately while the issue is investigated. Contact [support@mavera.ai](mailto:support@mavera.ai) if you notice unexpected behaviour after a change.
 
-Consider rolling back if:
-- High error rate
-- Performance degradation
-- User complaints
-- Critical bugs
-- Compliance issues
+---
 
-### **How to Rollback**
-
-Rollback process:
-1. Identify issue
-2. Decide to rollback
-3. Execute rollback
-4. Verify restoration
-5. Investigate issue
-
-![Rollback Process](/images/rollback-placeholder.png)
-
-## **Best Practices**
-
-### **1. Test Thoroughly**
-
-Test before deploying:
-- Complete testing
-- Edge case testing
-- Integration testing
-- Performance testing
-
-### **2. Deploy Gradually**
-
-Start small:
-- Limited rollout first
-- Monitor closely
-- Expand gradually
-- Full deployment when ready
-
-### **3. Monitor Closely**
-
-Watch metrics:
-- Real-time monitoring
-- Alert setup
-- Regular reviews
-- Quick response
-
-### **4. Have a Plan**
-
-Prepare for issues:
-- Rollback plan
-- Support plan
-- Communication plan
-- Fix plan
-
-### **5. Document Everything**
-
-Keep records:
-- Deployment steps
-- Configuration
-- Issues encountered
-- Resolutions
-
-## **Troubleshooting**
+## **FAQ**
 
 <AccordionGroup>
-  <Accordion title="Agent isn't receiving calls">
-    - Check telephony configuration
-    - Verify phone number assignment
-    - Test connectivity
-    - Review routing settings
+  <Accordion title="How long does the full deployment process take?">
+    From survey submission to a live agent typically takes 24–72 hours. Your Account Manager will give you a more specific timeline based on the complexity of your setup.
   </Accordion>
 
-  <Accordion title="Deployment failed">
-    - Check error messages
-    - Verify configuration
-    - Review logs
-    - Contact support
+  <Accordion title="What if I'm not happy with the agent during final testing?">
+    You won't be asked to go live until you're satisfied. If you have feedback during the testing phase, share it with your Account Manager and your Automation Expert will make the changes.
   </Accordion>
 
-  <Accordion title="How do I update a deployed agent?">
-    - Make changes in configuration
-    - Test changes
-    - Deploy update
-    - Monitor closely
+  <Accordion title="Can I pause my agent after going live?">
+    Yes — contact your Account Manager to temporarily suspend your agent if needed (e.g. during a business closure or system maintenance).
+  </Accordion>
+
+  <Accordion title="What happens if my agent goes down?">
+    Mavera monitors all active agents. If your agent experiences an issue, your Account Manager will be notified and will work to restore service. For urgent issues, contact [support@mavera.ai](mailto:support@mavera.ai).
+  </Accordion>
+
+  <Accordion title="Can I have multiple agents running at once?">
+    Yes, on Professional and Enterprise plans. Each agent can have its own phone number, voice, prompt, and integrations. Contact your Account Manager to add a second agent.
   </Accordion>
 </AccordionGroup>
+
+---
 
 ## **Next Steps**
 
 <CardGroup cols={2}>
   <Card title="Telephony" icon="phone" href="/launch/telephony">
-    Configure phone systems
-  </Card>
-  <Card title="Analytics" icon="chart-line" href="/learn/analytics-dashboard">
-    Monitor agent performance
+    Understand how your phone number and call routing works.
   </Card>
   <Card title="Logs" icon="file-lines" href="/learn/logs">
-    Review execution logs
+    Access call transcripts and recordings after launch.
+  </Card>
+  <Card title="Analytics" icon="chart-line" href="/learn/analytics-dashboard">
+    Monitor your agent's performance post-launch.
   </Card>
   <Card title="Webhooks" icon="webhook" href="/learn/about-webhooks">
-    Set up real-time updates
+    Receive real-time call events in your own systems.
   </Card>
 </CardGroup>
-

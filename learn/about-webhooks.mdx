@@ -1,121 +1,145 @@
 ---
 title: "Webhooks"
-description: "Set up webhooks to receive real-time updates"
+description: "Receive real-time call events from your Mavera agent in your own systems."
 ---
 
 ## **Overview**
 
-Webhooks allow you to receive real-time notifications about events in your Mavera AI account. Use webhooks to integrate with external systems and automate workflows.
+Webhooks let your own systems receive real-time notifications when things happen on your Mavera agent — a call starts, a call ends, a transcript is ready, or an action completes. Instead of polling the dashboard, your systems are notified the moment an event occurs.
+
+Webhooks are available on all plans. Your Automation Expert or your own development team can configure them — they point to any HTTPS endpoint you control.
 
 ![Webhooks Overview](/images/webhooks-overview-placeholder.png)
 
-## **What are Webhooks?**
+---
 
-Webhooks are HTTP callbacks that notify your system when events occur:
-- **Call Started**: When a call begins
-- **Call Ended**: When a call completes
-- **Call Transcribed**: When transcription is ready
-- **Action Executed**: When actions complete
-- **Error Occurred**: When errors happen
+## **When to Use Webhooks**
 
-## **Setting Up Webhooks**
+Webhooks are useful when you want call activity to trigger something in your own systems automatically:
 
-### **Step 1: Create Webhook**
+- **Log calls into your own CRM or database** in real time, without waiting for a manual export
+- **Trigger a follow-up workflow** when a call ends — for example, send a confirmation SMS or create a task in your project management tool
+- **Alert your team** when specific call outcomes occur (e.g. a caller asked to speak to a manager)
+- **Sync call data** to your business intelligence or reporting tools
+- **Automate post-call processes** like generating a summary email or updating a booking status
 
-1. Navigate to **Learn** → **Webhooks**
-2. Click **"Create Webhook"**
-3. Enter webhook URL
-4. Select events to subscribe to
-5. Configure security settings
+---
 
-![Webhook Setup](/images/webhook-setup-placeholder.png)
+## **Available Events**
 
-### **Step 2: Configure Events**
+The following events can trigger webhook deliveries from your `voice.mavera.ai` workspace:
 
-Select which events to receive:
-- **Call Events**: Call started, ended, etc.
-- **Agent Events**: Agent updates, deployments
-- **Action Events**: Action execution, completion
-- **Error Events**: Errors and failures
+| Event | Description |
+|---|---|
+| `call.started` | A call has begun |
+| `call.ended` | A call has completed |
+| `call.transcribed` | The transcript for a call is ready |
+| `call.transferred` | The call was transferred to a human |
+| `action.executed` | An action (e.g. calendar booking) was triggered |
+| `action.completed` | An action completed successfully |
+| `action.failed` | An action failed during a call |
 
-### **Step 3: Test Webhook**
+---
 
-Test your webhook:
-1. Send test event
-2. Verify receipt
-3. Check payload format
-4. Validate security
+## **Setting Up a Webhook**
 
-## **Webhook Security**
+Webhooks are configured in `voice.mavera.ai`. Your Automation Expert can set them up during onboarding, or you can do so yourself:
 
-### **Authentication**
+1. Navigate to your workspace settings in `voice.mavera.ai`
+2. Go to **Webhooks**
+3. Click **Add Webhook**
+4. Enter your endpoint URL (must be HTTPS)
+5. Select the events you want to subscribe to
+6. Save — and use the **Send Test Event** button to verify delivery
 
-Secure your webhooks:
-- **API Keys**: Use API key authentication
-- **Signatures**: Verify webhook signatures
-- **HTTPS**: Always use secure connections
-- **IP Whitelisting**: Restrict to known IPs
+![Webhook Setup Interface](/images/webhooks-setup-placeholder.png)
 
-### **Payload Verification**
+---
 
-Verify webhook authenticity:
-- Check signatures
-- Validate timestamps
-- Verify source
-- Validate payload structure
+## **Webhook Payload**
 
-## **Best Practices**
+Each webhook delivery is an HTTP `POST` request to your endpoint with a JSON body. A typical `call.ended` payload looks like:
 
-### **1. Use HTTPS**
+```json
+{
+  "event": "call.ended",
+  "timestamp": "2025-03-06T14:23:11Z",
+  "call": {
+    "id": "call_abc123",
+    "direction": "inbound",
+    "from": "+441234567890",
+    "to": "+447891234567",
+    "duration_seconds": 142,
+    "outcome": "completed",
+    "agent_id": "agent_xyz"
+  }
+}
+```
 
-Always use secure connections:
-- Encrypt webhook payloads
-- Protect sensitive data
-- Ensure privacy
-- Comply with regulations
+The exact fields available depend on the event type and your agent configuration. A `call.transcribed` event will also include the transcript text. An `action.completed` event will include the action type and result.
 
-### **2. Handle Failures**
+---
 
-Implement retry logic:
-- Retry failed deliveries
-- Handle timeouts
-- Log failures
-- Alert on issues
+## **Security**
 
-### **3. Validate Payloads**
+All webhook deliveries include a signature header that you can use to verify the request came from Mavera. Validate this signature in your endpoint before processing the payload.
 
-Verify webhook data:
-- Check payload structure
-- Validate required fields
-- Handle missing data
-- Sanitize inputs
+**Best practices:**
+- Only accept requests over HTTPS — never HTTP
+- Validate the webhook signature on every delivery
+- Respond with a `2xx` status code quickly — if your endpoint takes too long, the delivery may be retried
+- Don't rely on webhooks as your only data source — use [Logs](/learn/logs) or [Export Call Data](/learn/export-call-data) for historical data
+
+---
+
+## **Retries and Failures**
+
+If your endpoint returns a non-`2xx` response or times out, Mavera will retry the delivery automatically. Retry behaviour:
+
+- **3 retry attempts** with increasing delays
+- If all retries fail, the event is marked as failed
+- Failed deliveries are visible in your webhook logs in `voice.mavera.ai`
+
+---
 
 ## **Troubleshooting**
 
 <AccordionGroup>
-  <Accordion title="Webhooks aren't being received">
-    - Verify webhook URL is correct
-    - Check firewall settings
-    - Test endpoint accessibility
-    - Review security settings
+  <Accordion title="Webhooks aren't arriving at my endpoint">
+    - Confirm your endpoint is publicly accessible (not localhost)
+    - Check that it accepts `POST` requests over HTTPS
+    - Review firewall rules — the request originates from Mavera's servers
+    - Use the **Send Test Event** button in `voice.mavera.ai` to debug delivery
   </Accordion>
 
-  <Accordion title="How do I verify webhook authenticity?">
-    - Check webhook signatures
-    - Validate timestamps
-    - Verify source IP
-    - Use API key authentication
+  <Accordion title="How do I verify the webhook is from Mavera?">
+    Each delivery includes a signature header. Validate this against your webhook secret (available in your workspace settings) before processing. Never process webhook payloads that fail signature verification.
+  </Accordion>
+
+  <Accordion title="Can I subscribe to all events with one webhook?">
+    Yes — you can create a single webhook endpoint and subscribe it to all event types. Alternatively, you can create separate endpoints for different event types.
+  </Accordion>
+
+  <Accordion title="What happens if my endpoint is down?">
+    Mavera will retry failed deliveries up to 3 times with increasing delays. If all retries fail, the event is logged as undelivered. You can view failed deliveries in your webhook logs and re-trigger them if needed.
   </Accordion>
 </AccordionGroup>
+
+---
 
 ## **Next Steps**
 
 <CardGroup cols={2}>
-  <Card title="API Reference" icon="code" href="/api-reference/getting-started-with-your-api">
-    Learn about API integration
-  </Card>
   <Card title="Logs" icon="file-lines" href="/learn/logs">
-    Review webhook delivery logs
+    Access full call transcripts and recordings.
+  </Card>
+  <Card title="Export Call Data" icon="download" href="/learn/export-call-data">
+    Download call data in bulk.
+  </Card>
+  <Card title="API Reference" icon="code" href="/api-reference/getting-started-with-your-api">
+    Explore the Mavera API for programmatic access.
+  </Card>
+  <Card title="Actions" icon="bolt" href="/build/actions">
+    Learn what your agent can trigger during calls.
   </Card>
 </CardGroup>
-
